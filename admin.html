@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Clinica Atom</title>
+	<meta charset="utf-8"/>
+	<link href="css/administracion.css" rel="stylesheet" type="text/css"  media="all" />
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/responsiveslides.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-ui.multidatespicker.css">
+    <script src="js/administracion.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/libreria.js"></script>
+    <script type="text/javascript" src="js/administracion.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.multidatespicker.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+</head>
+<body>
+   <!--header-->
+   <div class="header">
+      <div class="wrap">
+         <!--logo-->
+         <div class="logo">
+            <a href="index.html"><img src="images/logo.png" title="logo" /></a>
+        </div>
+        <!--fin logo-->
+        <!--menu arriba-->
+        <div class="top-nav">
+            <ul>
+               <li class="active"><a href="#" onclick="todosMedicos()">Asignar Dias/Medico</a></li>
+               <li><a href="#" >Generar Citas/Medico</a></li>
+               <li><a href="index.html" >Salir Administración</a></li>
+           </ul>					
+       </div>
+       <div class="clear"> </div>
+       <!--fin menu-->
+   </div>
+   <!--fin header-->
+</div>
+<div class="clear"> </div>
+<article>
+  <section id="principal">
+    			<!--div id="login" class="login">
+    				<form action="" class="login_admin">
+    					<label for="usuario">Usuario</label></br>
+    					<input type="text" name="usuario" id="usuario"></br>
+    					<label for="pass">Contraseña</label></br>
+    					<input type="password" name="pass" id="pass"></br>
+    					<button class="link">Acceder</button>
+    				</form>
+    			</div-->
+                <div class="screen">
+                  <div class="content extrusion">
+                    <h2>Acceso</h2>
+                    <form>
+                      <label for="username">Usuario</label>
+                      <input type="text" name="username" placeholder=""/>
+                      <label for="password">Contraseña</label>
+                      <input type="password" name="password" placeholder=""/>
+                      <input type="submit" value="Entrar">
+                  </form>
+              </div>
+          </div>
+      </section>
+      <div class="clear"> </div>
+      <section id="secundario">
+         <div class="content-grids">
+            <div class="wrap">
+               <div class="section group">
+                  <div class="listview_1_of_3 images_1_of_3">
+                     <div class="listimg listimg_1_of_2">
+                        <img src="images/grid-img1.png">
+                    </div>
+                    <div class="text list_1_of_2">
+                        <h3>Doctores</h3>
+                        <div class="button"><span><a href="#" onclick="todosMedicos()">Todos los doctores</a></span></div>
+                    </div>
+                </div>				
+                <div class="listview_1_of_3 images_1_of_3">
+                 <div class="listimg listimg_1_of_2">
+                    <a name="informacion"></a>
+                    <img src="images/agenda1.png">
+                </div>
+                <div class="text list_1_of_2">
+                    <h3>Agenda</h3>
+                    <div class="button"><span><a href="#" onclick="consultarEspecialidad()">Asignar Agenda</a></span></div>
+                </div>
+            </div>				
+            <div class="listview_1_of_3 images_1_of_3">
+             <div class="listimg listimg_1_of_2">
+                <img src="images/agenda.png">
+            </div>
+            <div class="text list_1_of_2">
+                <h3>Citas</h3>
+                <div class="button"><spam><a href="#" onclick='info_clinica()'>Ver información</a></spam></div>
+            </div>
+        </div>				
+    </div>
+</div>
+</div>
+</section>
+</article>
+<!--slider---->
+<!--footer-->
+<div class="footer">
+  <div class="wrap">
+     <div class="footer-right">
+        <p>&copy; 2018 Clinica Atom. All Rights Reserved | Design by <a href="http:www.fransaez.com">Fran Saez</a></p>
+    </div>
+    <div class="clear"> </div>
+</div>
+</div>
+<!--fin footer-->
+</body>
+</html>
+

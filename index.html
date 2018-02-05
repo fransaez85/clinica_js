@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Clinica Atom</title>
+	<meta charset="utf-8"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+	<link rel="stylesheet" href="css/responsiveslides.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/responsiveslides.min.js"></script>
+	<script src="js/libreria.js"></script>
+	<script>
+		    // poner la funcion en el onload??? "$(window).load(function() {"
+		    $(function () {
+
+			      // Slideshow 1
+			      $("#slider1").responsiveSlides({
+			      	maxwidth: 1600,maxheigth:400,
+			      	speed: 600
+			      });
+			  });
+			</script>
+		</head>
+		<body>
+			<!--header-->
+			<div class="header">
+				<div class="wrap">
+					<!--logo-->
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" title="logo" /></a>
+					</div>
+					<!--fin logo-->
+					<!--menu arriba-->
+					<div class="top-nav">
+						<ul>
+							<li class="active"><a href="index.html">Inicio</a></li>
+							<li><a href="#" onclick="info_clinica()">Acerca de nosotros</a></li>
+							<li><a href="#" onclick="consultarEspecialidad()">Servicios</a></li>
+							<li><a href="#" onclick="contacto()">contacto</a></li>
+							<li><a href="admin.html" >Administracion</a></li>
+						</ul>					
+					</div>
+					<div class="clear"> </div>
+					<!--fin menu-->
+				</div>
+				<!--fin header-->
+			</div>
+			<div class="clear"> </div>
+			<article>
+				<section id="principal">
+					<div class="image-slider">
+
+						<ul class="rslides" id="slider1">
+							<li><img src="images/slider-image1.jpg" alt=""></li>
+							<li><img src="images/slider-image2.jpg" alt=""></li>
+							<li><img src="images/slider-image1.jpg" alt=""></li>
+						</ul>
+
+					</div>
+					<!--fin slider---->
+				</section>
+				<div class="clear"> </div>
+				<section id="secundario">
+					<div class="content-grids">
+						<div class="wrap">
+							<div class="section group">
+								<div class="listview_1_of_3 images_1_of_3">
+									<div class="listimg listimg_1_of_2">
+										<img src="images/grid-img1.png">
+									</div>
+									<div class="text list_1_of_2">
+										<h3>Doctores</h3>
+										<div class="button"><span><a href="#" onclick="consultarEspecialidad()">Ver más</a></span></div>
+									</div>
+								</div>				
+								<div class="listview_1_of_3 images_1_of_3">
+									<div class="listimg listimg_1_of_2">
+										<a name="informacion"></a>
+										<img src="images/grid-img2.png">
+									</div>
+									<div class="text list_1_of_2">
+										<h3>Pide cita</h3>
+										<div class="button"><span><a href="#" onclick="consultarEspecialidad()">Pedir cita</a></span></div>
+									</div>
+								</div>				
+								<div class="listview_1_of_3 images_1_of_3">
+									<div class="listimg listimg_1_of_2">
+										<img src="images/grid-img3.png">
+									</div>
+									<div class="text list_1_of_2">
+										<h3>Información</h3>
+										<div class="button"><spam><a href="#" onclick='info_clinica()'>Ver información</a></spam></div>
+									</div>
+								</div>				
+							</div>
+						</div>
+					</div>
+				</section>
+			</article>
+			<!--slider---->
+			<!--footer-->
+			<div class="footer">
+				<div class="wrap">
+					<div class="footer-right">
+						<p>&copy; 2018 Clinica Atom. All Rights Reserved | Design by <a href="http:www.fransaez.com">Fran Saez</a></p>
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>
+			<!--fin footer-->
+		</body>
+		</html>
+
