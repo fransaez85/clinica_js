@@ -154,7 +154,7 @@ function asignarDias(id){
     //funcion que crea el calendario  
     var date = new Date();
     $('#calendario').multiDatesPicker({
-        dateFormat: "dd/mm/yy",
+        dateFormat: "yy/mm/dd",
         //addDates: [date.setDate()],
        //altField: '#dias',   
        beforeShowDay: $.datepicker.noWeekends
@@ -181,11 +181,11 @@ function asignarDias(id){
 
 //=================================================================================================================//
 function insertarDiasMedico(dates1,id){
-    //var json_dias = JSON.stringify(dates1);
+    var json_dias = JSON.stringify(dates1);
 
-   // alert(json_dias);
+    //alert(json_dias);
     objAjax = AJAXCrearObjeto();
-    objAjax.open('GET', 'php/insertarDiasMedico.php?dates1='+dates1+'&id='+id, true); // llamamos al php
+    objAjax.open('GET', 'php/insertarDiasMedico.php?dates1='+json_dias+'&id='+id, true); // llamamos al php
     objAjax.send();
     objAjax.onreadystatechange=responder_insertarDiasMedico;
 }
