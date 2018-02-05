@@ -1,8 +1,8 @@
 
  //================crear objeto ajax==========================================================================//
 
-var objetoAjax;
-function AJAXCrearObjeto(){
+ var objetoAjax;
+ function AJAXCrearObjeto(){
     if(window.XMLHttpRequest) { 
         // navegadores que siguen los estándares 
         objetoAjax = new XMLHttpRequest(); 
@@ -33,8 +33,8 @@ function datosclinica(){
     //alert("entro");
     if (objetoAjax.readyState == 4){
         if (objetoAjax.status == 200) {
-           var div=document.getElementById("principal")
-           eliminarSecciones();
+         var div=document.getElementById("principal")
+         eliminarSecciones();
 
             //alert(objetoAjax.responseText);
             var aux = objetoAjax.responseText;
@@ -168,7 +168,7 @@ function responderMedicos(){
 
     if (objetoAjax.readyState == 4){
         if (objetoAjax.status == 200) {
-           var div=document.getElementById("principal");
+         var div=document.getElementById("principal");
 
            // alert("entro");
            eliminarSecciones()
@@ -208,7 +208,7 @@ function responderMedicos(){
                 var p1=document.createElement("p");
                 //añadir enlace a pide cita
                 var link=document.createElement("a");
-                link.setAttribute("href","cita.html");
+                link.setAttribute("onclick","pedirCita("+obj_json[i].id+")");
                 link.setAttribute("class","link");
                 var cita=document.createTextNode("Pedir cita");
                 link.appendChild(cita);
@@ -294,5 +294,88 @@ function eliminarSecciones(){
     }
 }
 
+//=================================funcion pedir cita medico=========================//
+function pedirCita(id){
+    var id=id;
+    eliminarSecciones();
+    MedicoId(id);
+    //creando elementos
+    var div=document.getElementById("principal");
+    var div2=document.createElement("div");
+    div2.setAttribute("id","calendario");
+    div.appendChild(div2);
+    //creando botones para el calendario
+    var boton=document.createElement("button");
+    var text=document.createTextNode("Pedir Cita");
+    boton.appendChild(text);
+    boton.setAttribute("value","Pedir Cita");
+    boton.setAttribute("id","pedir_cita")
+    div2.appendChild(boton);
+
+     //funcion que crea el calendario  
+   /* var date = new Date();
+    $('#calendario').multiDatesPicker({
+        dateFormat: "yy/mm/dd", 
+        maxPicks: 1,
+        //adjustRangeToDisabled: true,
+       // addDisabledDates: [date.setDate(10), date.setDate(15)] 
+       //beforeShowDay: $.datepicker.noWeekends
+   });*/
+
+    mostrarDiasMedico();
+    //funcion que recoje el array de dias del calendario (string)
+    $('#pedir_cita').click(function() {
+        var dates1 = $('#calendario').multiDatesPicker('getDates');
+        alert(dates1);
+        
+    });
+}
+
+//=================================funcion mostrar los dias que trabaja ese medico=========================//
+function mostrarDiasMedico(id){
+    objAjax = AJAXCrearObjeto();
+    objAjax.open('GET', 'php/mostrarDiasMedico.php?id='+id, true); // llamamos al php
+    objAjax.send();
+    objAjax.onreadystatechange=responder_mostrarDiasMedico;
+}
+
+//=================================funcion rsponder los dias que trabaja ese medico=========================//
+function responder_mostrarDiasMedico(){
+    /*var aux = objetoAjax.responseText;
+    var obj_json = JSON.parse(aux);
+    var array=new Array();
+
+        for (var i = 0; i < obj_json.length; i++){
+            var date=new Date();
+            var date1=date.setDate(obj_json[i].fecha_laboral);
+            array.push(date1);
+        };
+
+        for(varj=0;j<array.length;j++){
+            $('#calendario').multiDatesPicker({
+            addDisabledDates: [array.setDate[j]]
+        });
+    }*/
 
 
+if (objAjax.readyState == 4 && objAjax.status == 200) {
+
+            var obj_json = JSON.parse(objAjax.responseText);
+            console.warn(xhr.responseText);
+
+            for (var i=0 ; i<obj_json.length ; i++) {
+              
+                var date = new Date(obj_json[i].fecha_laboral);
+
+                $('#calendario').multiDatesPicker({
+                    addDisabledDates: [date]
+                });
+            }       
+
+            $('#calendario').multiDatesPicker({
+                dateFormat: "yy/mm/dd",
+                maxPicks: 1
+            });
+            
+}
+}
